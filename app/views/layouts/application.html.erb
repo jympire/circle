@@ -3,20 +3,38 @@
   <head>
     <title>Circle</title>
     <%= csrf_meta_tags %>
+    
+    <%= favicon_link_tag asset_path('circle.ico'), :rel => 'icon', :type => "image/x-icon" %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     
-    <link rel="stylesheet" href="https://use.typekit.net/wgg1szv.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700,800,900" rel="stylesheet">
     
   </head>
 
   <body>
-   
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+  
+    <% flash.each do |key, value| %>
+      <% alert_class = case key
+        when :notice then "success"
+        when :alert then "danger"
+        else key
+        end %>
+        <%= content_tag :div, class: "alert alert-info" do %>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <%= value %>
+        <% end %>
+    <% end %>
+  
+    <%= render 'shared/navbar' %>
     
-    <%= yield %>
+    <div class="container content">
+      <%= yield %>  
+    </div>
     
+    <%= render 'shared/footer' %> 
+       
   </body>
 </html>
+
