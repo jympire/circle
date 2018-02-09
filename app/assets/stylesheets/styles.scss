@@ -127,7 +127,7 @@ hr {
 .navbar-default .navbar-brand.user {
   color: $primary;
   font-weight: 800;
-  margin-top: 7px !important;
+  margin-top: 8px !important;
   
   &:hover {
     color: $primary;
@@ -188,6 +188,8 @@ hr {
   font-weight: 400;
   background: $white;
   box-shadow: none;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
 }
 
 .btn.btn-submit {
@@ -212,6 +214,8 @@ hr {
 /* Panel */
 .panel.panel-default {
   box-shadow: none;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
   border: 1px solid $border;
 }
 
@@ -281,7 +285,6 @@ select {
   padding: 0.5em 0.5em;
   margin: .25em 0 .25em 0;
   background-color: $white;
-  box-shadow: none;
   -moz-appearance: none; /* Firefox */
   -webkit-appearance: none; /* Safari and Chrome */
 }
