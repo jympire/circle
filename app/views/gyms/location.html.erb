@@ -1,0 +1,30 @@
+<div class="row">
+  <div class="col-md-3">
+    <%= render 'gym_menu' %>
+    <br>
+  </div>
+  <div class="col-md-9">
+    <div class="panel panel-default">
+      <div class="panel-heading">Location</div>
+      <div class="panel-body">
+        <br>
+        <div class="container">
+          <%= form_for @gym do |f| %>
+
+            <div class="row">
+              <div class="form-group">
+                <%= f.text_field :address, placeholder: "What is your address?", class: "form-control", required: true %>
+              </div>
+            </div>
+
+            <div class="text-center">
+              <%= f.submit "Save", class: "btn btn-submit" %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>  
+  </div>
+</div> 
+
+

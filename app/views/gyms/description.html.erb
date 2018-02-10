@@ -1,0 +1,35 @@
+<div class="row">
+  <div class="col-md-3">
+    <%= render 'gym_menu' %>
+    <br>
+  </div>
+  <div class="col-md-9">
+    <div class="panel panel-default">
+      <div class="panel-heading">Description</div>
+      <div class="panel-body">
+        <div class="container">
+          <%= form_for @gym do |f| %>
+
+          <div class="row">
+            <div class="form-group">
+            <label>Listing name</label>
+              <%= f.text_field :listing_name, placeholder: "What is your listing name?", class: "form-control", required: true %>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="form-group">
+            <label>Summary</label>
+              <%= f.text_area :summary, rows: 5, placeholder: "Tell other people about your gym.", class: "form-control", required: true %>
+            </div>
+          </div>
+
+          <div class="text-center">
+            <%= f.submit "Save", class: "btn btn-submit" %>
+            <% end %>
+          </div>
+        </div>
+      </div>  
+    </div>
+  </div>
+</div>

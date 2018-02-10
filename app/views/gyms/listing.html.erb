@@ -1,0 +1,33 @@
+<div class="row">
+  <div class="col-md-3">
+    <%= render 'gym_menu' %>
+    <br>
+  </div>
+  <div class="col-md-9">
+    <div class="panel panel-default">
+      <div class="panel-heading">Listing</div>
+      <div class="panel-body">
+        <div class="container">
+          <%= form_for @gym do |f| %>
+
+            <div class="row">
+              <div class="col-md-4 select">
+                <div class="form-group">
+                  <label>Gym Type</label>
+                  <br>
+                  <%= f.select :gym_type, [["Fitness Center", "Fitness Center"], ["Crossfit Box", "Crossfit Box"], ["Studio", "Studio"], ["Sports Training", "Sports Training"]],
+                                id: "gym_type", prompt: "Select...", class: "form-control" %>
+                </div>
+              </div>
+              
+            </div>
+
+            <div><%= f.submit "Save", class: "btn btn-submit" %></div>
+
+          <% end %>
+        </div>
+      </div>
+    </div>  
+  </div>
+</div> 
+

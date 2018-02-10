@@ -1,0 +1,43 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  gym_type: MyString
+  listing_name: MyString
+  summary: MyText
+  address_string: MyString
+  is_weights: false
+  is_boxing: false
+  is_internet: false
+  is_lounge: false
+  is_shower: false
+  is_towel: false
+  is_yoga: false
+  is_cycling: false
+  is_pilates: false
+  is_pool: false
+  is_basketball: false
+  is_childcare: false
+  price: 1
+  active: false
+  user: one
+
+two:
+  gym_type: MyString
+  listing_name: MyString
+  summary: MyText
+  address_string: MyString
+  is_weights: false
+  is_boxing: false
+  is_internet: false
+  is_lounge: false
+  is_shower: false
+  is_towel: false
+  is_yoga: false
+  is_cycling: false
+  is_pilates: false
+  is_pool: false
+  is_basketball: false
+  is_childcare: false
+  price: 1
+  active: false
+  user: two

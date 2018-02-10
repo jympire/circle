@@ -1,0 +1,38 @@
+<div class="row">
+  <div class="col-md-3">
+    <div class="alert alert-warning alert-dismissible d-none d-lg-block" role="alert">
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <span class="alert-link"></span> This is the very beginning of your Listing!
+    </div>
+    <br>
+  </div>
+  <div class="col-md-9">
+    <div class="panel panel-default">
+      <div class="panel-heading">Create your listing</div>
+      <div class="panel-body">
+        <div class="container">
+          <%= form_for @gym do |f| %>
+
+            <div class="row">
+              <div class="col-md-4 select">
+                <div class="form-group">
+                  <label>Gym Type</label>
+                  <br>
+                  <%= f.select :gym_type, [["Fitness Center", "Fitness Center"], ["Crossfit Box", "Crossfit Box"], ["Studio", "Studio"], ["Sports Training", "Sports Training"]],
+                                id: "gym_type", prompt: "Select...", class: "form-control" %>
+                </div>
+              </div>
+            </div>
+
+            <div><%= f.submit "Create Listing", class: "btn btn-submit" %></div>
+
+            <br>
+
+          <% end %>
+
+        </div> 
+      </div>
+    </div>
+  </div>
+</div>
+

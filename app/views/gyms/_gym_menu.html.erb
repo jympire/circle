@@ -1,0 +1,85 @@
+<ul class="sidebar-list">
+ 
+  <% if current_page?(listing_gym_path) %>
+  <li class="sidebar-item">
+    <%= link_to "Listing", listing_gym_path, class: "sidebar-link active" %>
+    <span class="pull-right text-babu"><i class="fa fa-check"></i></span>
+  </li>
+  <% else %>
+  <li class="sidebar-item">
+    <%= link_to "Listing", listing_gym_path, class: "sidebar-link" %>
+    <span class="pull-right text-babu"><i class="fa fa-check"></i></span>
+  </li>
+  <% end %>
+  
+  <% if current_page?(pricing_gym_path) %>
+  <li class="sidebar-item">
+    <%= link_to "Pricing", pricing_gym_path, class: "sidebar-link active" %>
+    <% if !@gym.price.blank? %>
+      <span class="pull-right text-babu"><i class="fa fa-check"></i></span>
+    <% end %>
+  </li>
+  <% else %>
+  <li class="sidebar-item">
+    <%= link_to "Pricing", pricing_gym_path, class: "sidebar-link" %>
+    <% if !@gym.price.blank? %>
+      <span class="pull-right text-babu"><i class="fa fa-check"></i></span>
+    <% end %>
+  </li>
+  <% end %>
+  
+  <% if current_page?(description_gym_path) %>
+  <li class="sidebar-item">
+    <%= link_to "Description", description_gym_path, class: "sidebar-link active" %>
+    <% if !@gym.listing_name.blank? %>
+      <span class="pull-right text-babu"><i class="fa fa-check"></i></span>
+    <% end %>
+  </li>
+  <% else %>
+  <li class="sidebar-item">
+    <%= link_to "Description", description_gym_path, class: "sidebar-link" %>
+    <% if !@gym.listing_name.blank? %>
+      <span class="pull-right text-babu"><i class="fa fa-check"></i></span>
+    <% end %>
+  </li>
+  <% end %>
+  
+  <% if current_page?(photo_upload_gym_path) %>
+  <li class="sidebar-item">
+    <%= link_to "Photos", photo_upload_gym_path, class: "sidebar-link active" %>
+    
+  </li>
+  <% else %>
+  <li class="sidebar-item">
+    <%= link_to "Photos", photo_upload_gym_path, class: "sidebar-link" %>
+    
+  </li>
+  <% end %>
+  
+  <% if current_page?(amenities_gym_path) %>
+  <li class="sidebar-item">
+    <%= link_to "Amenities", amenities_gym_path, class: "sidebar-link active" %>
+    <span class="pull-right text-babu"><i class="fa fa-check"></i></span>
+  </li>
+  <% else %>
+    <li class="sidebar-item">
+    <%= link_to "Amenities", amenities_gym_path, class: "sidebar-link" %>
+    <span class="pull-right text-babu"><i class="fa fa-check"></i></span>
+  </li>
+  <% end %>
+  
+  <% if current_page?(location_gym_path) %>
+  <li class="sidebar-item">
+    <%= link_to "Location", location_gym_path, class: "sidebar-link active" %>
+    
+  </li>
+  <% else %>
+  <li class="sidebar-item">
+    <%= link_to "Location", location_gym_path, class: "sidebar-link" %>
+    
+  </li>
+  <% end %>
+  
+</ul> 
+<hr>
+
