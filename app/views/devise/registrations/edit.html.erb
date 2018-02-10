@@ -11,8 +11,6 @@
       <div class="container">
         <div class="panel-body">
           
-          <br>
-
           <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
             <%= devise_error_messages! %>
 
@@ -45,19 +43,9 @@
             <div class="form-group">
               <%= f.password_field :password_confirmation, autocomplete: "off", placeholder: "Confirm Password", class: "form-control" %>
             </div>
-        </div>
-      </div> 
-    </div>
-
-    <br>
-
-    <div class="panel panel-default">
-      <div class="panel-heading">Optional</div>
-      <div class="container">
-        <div class="panel-body">
-         
-          <br>
-          
+      
+          <div class="panel-heading">Optional</div>
+                   
           <div class="form-group">
             <%= f.text_field :title, :placeholder => "Title - e.g. Personal Trainer", class: "form-control" %>
           </div>
@@ -86,13 +74,13 @@
             <%= f.text_field :insurance_number, :placeholder => "Trainer Insurance Number", class: "form-control" %>
           </div>
           
-        </div>
-      </div>
-    </div>
+        
     <div class="actions">
       <%= f.submit "Save", :class => "btn btn-save" %>
     </div>
     <% end %>
+    </div> 
+    </div>
   </div>      
 </div>  
 
