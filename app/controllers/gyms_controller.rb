@@ -1,6 +1,7 @@
 class GymsController < ApplicationController
   before_action :set_gym, except: [:index, :new, :create]
   before_action :authenticate_user!, except: [:show]
+  before_action :is_authorised, only: [:listing, :pricing, :description, :photo_upload, :amenities, :location, :update]
   
   def index
     @gyms = current_user.gyms
@@ -33,6 +34,7 @@ class GymsController < ApplicationController
   end
 
   def photo_upload
+    @photos = @gym.photos
   end
 
   def amenities
@@ -53,6 +55,10 @@ class GymsController < ApplicationController
   private
   def set_gym
     @gym = Gym.find(params[:id])
+  end
+  
+  def is_authorised
+    redirect_to root_path, alert: "You don't have permission." unless current_user.id == @gym.user_id
   end
   
   def gym_params
