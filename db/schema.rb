@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180209204524) do
+ActiveRecord::Schema.define(version: 20180210004642) do
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -33,6 +33,17 @@ ActiveRecord::Schema.define(version: 20180209204524) do
     t.string   "provider"
     t.string   "uid"
     t.string   "image"
+    t.string   "phone_number"
+    t.text     "description"
+    t.string   "title"
+    t.string   "certification"
+    t.string   "certification_number"
+    t.string   "insurance"
+    t.string   "insurance_number"
+    t.string   "school"
+    t.string   "degree"
+    t.string   "location"
+    t.string   "interests"
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true

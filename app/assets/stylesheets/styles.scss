@@ -3,7 +3,7 @@ $black:                           #000000;
 $dark:                            #484848;
 $medium:                          #767676;
 $light:                           #9a9da4;
-$primary:                         #6a67ce;
+$primary:                         #4285f4;
 $secondary:                       #34a853;
 $tertiary:                        #fbbc05;
 $quaternary:                      #ea4335;
@@ -63,7 +63,7 @@ body {
 
 .container.content {
   min-height: 680px;
-  padding-top: 100px;
+  padding-top: 50px;
 }
 
 
@@ -206,7 +206,7 @@ hr {
 .btn.btn-facebook {
   height: 3.5em;
   font-weight: 600;
-  background-color: $facebook !important;
+  background-color: $secondary !important;
   color: $white;
   padding: 14px;
 }

@@ -1,0 +1,80 @@
+<div class="container content">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3">
+        <div class="center">
+          <%= image_tag avatar_url(@user), class: "avatar-full" %>
+        </div>
+        <br>
+        <div class="panel panel-default">
+          <div class="panel-heading">Verified info</div>
+          <div class="panel-body">
+            <ul class="sidebar-list">
+              <% if @user.confirmation_token %>
+                <li>Email Address<span class="pull-right icon-babu"><i class="fa fa-check-circle-o"></i></span></li>
+              <% end %>
+              <% if @user.provider %>
+                <li>Facebook<span class="pull-right icon-babu"><i class="fa fa-check-circle-o"></i></span></li>
+              <% end %>
+              
+            </ul>
+          </div>
+        </div>
+        <div class="panel panel-default">
+          <div class="panel-heading">About Me</div>
+          <div class="panel-body">
+            <% if !@user.title.blank? %>
+            <h5 class="about-me">Title</h5><div class="small"><%= @user.title %></div>
+            <br>
+            <% else %>
+            <% end %>
+            <% if !@user.school.blank? %>
+            <h5 class="about-me">School</h5><div class="small"><%= @user.school %></div>
+            <br>
+            <% else %>
+            <% end %>
+            <% if !@user.degree.blank? %>
+            <h5 class="about-me">Degree</h5><div class="small"><%= @user.degree %></div>
+            <br>
+            <% else %>
+            <% end %>
+            <% if !@user.certification.blank? %>
+            <h5 class="about-me">Certification</h5><div class="small"><%= @user.certification %></div>
+            <br>
+            <% else %>
+            <% end %>
+            <% if !@user.certification_number.blank? %>
+            <h5 class="about-me">Certification #</h5><div class="small"><%= @user.certification_number %></div>
+            <br>
+            <% else %>
+            <% end %>
+            <% if !@user.insurance.blank? %>
+            <h5 class="about-me">Insurance Provider</h5><div class="small"><%= @user.insurance %></div>
+            <br>
+            <% else %>
+            <% end %>
+            <% if !@user.insurance_number.blank? %>
+            <h5 class="about-me">Insurance Number</h5><div class="small"><%= @user.insurance_number %></div>
+            <% else %>
+            <% end %>
+          </div>
+        </div>
+        
+      </div>
+      <div class="col-md-9">
+        <h3>Hey, I'm <%= @user.first_name %>!</h3> 
+        <% if @user == current_user %>
+          <%= link_to "Edit Profile", edit_user_registration_path %>
+        <% end %>
+        <% if !@user.description.blank? %>
+        <div class="description row-space-3">
+          <%= @user.description %>
+        </div>
+        <% else %>
+        <% end %>
+        <br><br>
+         
+      </div>
+    </div> 
+  </div> 
+</div>
