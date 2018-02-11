@@ -47,12 +47,16 @@
   <% if current_page?(photo_upload_gym_path) %>
   <li class="sidebar-item">
     <%= link_to "Photos", photo_upload_gym_path, class: "sidebar-link active" %>
-    
+    <% if !@gym.photos.blank? %>
+      <span id="photo_check" class="pull-right text-babu"><i class="fa fa-check"></i></span>
+    <% end %>
   </li>
   <% else %>
   <li class="sidebar-item">
     <%= link_to "Photos", photo_upload_gym_path, class: "sidebar-link" %>
-    
+    <% if !@gym.photos.blank? %>
+      <span id="photo_check" class="pull-right text-babu"><i class="fa fa-check"></i></span>
+    <% end %>
   </li>
   <% end %>
   
@@ -71,15 +75,25 @@
   <% if current_page?(location_gym_path) %>
   <li class="sidebar-item">
     <%= link_to "Location", location_gym_path, class: "sidebar-link active" %>
-    
+    <% if !@gym.address_string.blank? %>
+      <span class="pull-right text-babu"><i class="fa fa-check"></i></span>
+    <% end %>
   </li>
   <% else %>
   <li class="sidebar-item">
     <%= link_to "Location", location_gym_path, class: "sidebar-link" %>
-    
+    <% if !@gym.address_string.blank? %>
+      <span class="pull-right text-babu"><i class="fa fa-check"></i></span>
+    <% end %>
   </li>
   <% end %>
   
 </ul> 
 <hr>
 
+<% is_ready = !@gym.active && !@gym.price.blank? && !@gym.listing_name.blank? && !@gym.photos.blank? && !@gym.address_string.blank? %>
+
+<%= form_for @gym do |f| %>
+  <%= f.hidden_field :active, value: true %>
+  <%= f.submit "Publish", id: "publish_button", class: "btn btn-save btn-block", disabled: !is_ready %>
+<% end %>
