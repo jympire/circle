@@ -1,0 +1,50 @@
+<div class="row">
+  <div class="col-md-3">
+    <ul class="sidebar-list">
+      <li class="sidebar-item"><%= link_to "Your Listings", gyms_path, class: "sidebar-link" %></li>
+      <li class="sidebar-item"><%= link_to "Your Reservations", your_reservations_path, class: "sidebar-link" %></li>
+      <li class="sidebar-item"><%= link_to "Your Bookings", your_bookings_path, class: "sidebar-link active" %></li>
+    </ul>
+  </div>
+  <% if @bookings.count > 0 %>
+  <div class="col-md-9">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        Your Bookings
+      </div>
+      <div class="panel-body">
+        <% @bookings.each do |booking| %>
+          <div class="row">
+            <div class="col-md-2">
+              <%= booking.start_date.strftime('%v') %> to <%= booking.end_date.strftime('%v') %>
+              <br>
+              <h5></h5>
+            </div>
+            <div class="col-md-2">
+              <%= link_to gym_path(booking.gym) do %>
+                <%= image_tag booking.gym.cover_photo(:thumb) %>
+              <% end %>
+            </div>
+            <div class="col-md-5">
+              <%= link_to booking.gym.listing_name, gym_path(booking.gym) %><br><br>
+              <span>
+                <%= image_tag avatar_url(booking.gym.user), class: "img-circle avatar-small" %>
+                <%= link_to user_path(booking.gym.user) do %>
+                    <%= booking.gym.user.first_name %>
+                <% end %>
+              </span>
+            </div>
+
+          </div>
+          <hr/>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <% else %>
+    <div class="col-md-6 text-center">
+      <h3>You don't have any bookings.</h3>
+    </div>
+  <% end %>
+</div>  
+
