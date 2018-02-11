@@ -465,3 +465,31 @@ input[type="checkbox"]:checked:before {
   background: transparent;
   box-shadow: none;
 }
+
+
+/* Reservations */
+.reservation-table td {
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid $border;
+  padding: 10px;
+}
+
+.reservation-table .total td {
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+}
+
+.form-control.datepicker {
+  color: $secondary;
+  background-color: white;
+  border: 1px solid $border;
+  text-align: center;
+}
+
+.message-alert {
+  color: $quaternary;
+  font-size: 14px;
+  padding-top: 10px;
+}

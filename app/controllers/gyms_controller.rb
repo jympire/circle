@@ -57,7 +57,31 @@ class GymsController < ApplicationController
     redirect_back(fallback_location: request.referer)
   end
   
+  # --- Reservations ---
+  def preload
+    today = Date.today
+    reservations = @gym.reservations.where("start_date >= ? OR end_date >= ?", today, today)
+
+    render json: reservations
+  end
+
+  def preview
+    start_date = Date.parse(params[:start_date])
+    end_date = Date.parse(params[:end_date])
+
+    output = {
+      conflict: is_conflict(start_date, end_date, @gym)
+    }
+
+    render json: output
+  end
+  
   private
+    def is_conflict(start_date, end_date, gym)
+      check = gym.reservations.where("? < start_date AND end_date < ?", start_date, end_date)
+      check.size > 0? true : false
+    end
+  
     def set_gym
       @gym = Gym.find(params[:id])
     end
