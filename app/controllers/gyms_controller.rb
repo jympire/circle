@@ -22,6 +22,8 @@ class GymsController < ApplicationController
   end
   
   def show
+    @photos = @gym.photos
+    @user = @gym.user
   end
 
   def listing

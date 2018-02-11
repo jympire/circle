@@ -211,6 +211,16 @@ hr {
   padding: 14px;
 }
 
+.btn.btn-update {
+  font-size: 0.9em;
+  color: $white;
+  font-weight: 400;
+  background: $primary;
+  box-shadow: none;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+}
+
 
 /* Panel */
 .panel.panel-default {
@@ -377,7 +387,7 @@ input[type="checkbox"]:checked:before {
 
 /* Sidebar */
 .sidebar-list {
-  padding-left: 20px;
+  padding: 0;
   list-style: none;
 }
 
