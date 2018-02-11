@@ -58,19 +58,19 @@ class GymsController < ApplicationController
   end
   
   private
-  def set_gym
-    @gym = Gym.find(params[:id])
-  end
-  
-  def is_authorised
-    redirect_to root_path, alert: "You don't have permission." unless current_user.id == @gym.user_id
-  end
-  
-  def is_ready_gym
-    !@gym.active && !@gym.price.blank? && !@gym.listing_name.blank? && !@gym.photos.blank? && !@gym.address_string.blank?
-  end
-  
-  def gym_params
-    params.require(:gym).permit(:gym_type, :listing_name, :summary, :address_string, :is_internet, :is_lounge, :is_pool, :is_shower, :is_towel, :is_yoga, :is_cycling, :is_pilates, :is_basketball, :is_childcare, :is_weights, :is_boxing, :price, :active)
-  end
+    def set_gym
+      @gym = Gym.find(params[:id])
+    end
+
+    def is_authorised
+      redirect_to root_path, alert: "You don't have permission." unless current_user.id == @gym.user_id
+    end
+
+    def is_ready_gym
+      !@gym.active && !@gym.price.blank? && !@gym.listing_name.blank? && !@gym.photos.blank? && !@gym.address_string.blank?
+    end
+
+    def gym_params
+      params.require(:gym).permit(:gym_type, :listing_name, :summary, :address_string, :is_internet, :is_lounge, :is_pool, :is_shower, :is_towel, :is_yoga, :is_cycling, :is_pilates, :is_basketball, :is_childcare, :is_weights, :is_boxing, :price, :active)
+    end
 end

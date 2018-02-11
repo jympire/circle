@@ -9,6 +9,7 @@ class User < ApplicationRecord
   validates :last_name, presence: true, length: {maximum: 25}
   
   has_many :gyms
+  has_many :reservations
   
   def self.from_omniauth(auth)
     user = User.where(email: auth.info.email).first

@@ -1,6 +1,7 @@
 class Gym < ApplicationRecord
   belongs_to :user
   has_many :photos
+  has_many :reservations
   
   geocoded_by :address_string
   after_validation :geocode, if: :address_string_changed?
