@@ -88,6 +88,25 @@
           </div>
           <% end %>
         </div>
+        <br><br>
+        <% if @guest_reviews.count > 0 %>
+        <h4>Reviews From Guests (<%= @guest_reviews.count %>)</h4>
+          <br>
+          <div class="row">
+            <%= render "reviews/guest_list" %>
+          </div>
+        <% else %>
+        <% end %>
+        <br>
+
+        <% if @host_reviews.count > 0 %>
+          <h4>Reviews From Hosts (<%= @host_reviews.count %>)</h4>
+          <br>
+          <div class="row">
+            <%= render "reviews/host_list" %>
+          </div>
+        <% else %>
+        <% end %>
       </div>
     </div> 
   </div> 

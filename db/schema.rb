@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180211045433) do
+ActiveRecord::Schema.define(version: 20180212000102) do
 
   create_table "gyms", force: :cascade do |t|
     t.string   "gym_type"
@@ -61,6 +61,22 @@ ActiveRecord::Schema.define(version: 20180211045433) do
     t.datetime "updated_at", null: false
     t.index ["gym_id"], name: "index_reservations_on_gym_id"
     t.index ["user_id"], name: "index_reservations_on_user_id"
+  end
+
+  create_table "reviews", force: :cascade do |t|
+    t.text     "comment"
+    t.integer  "star",           default: 1
+    t.integer  "gym_id"
+    t.integer  "reservation_id"
+    t.integer  "guest_id"
+    t.integer  "host_id"
+    t.string   "type"
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+    t.index ["guest_id"], name: "index_reviews_on_guest_id"
+    t.index ["gym_id"], name: "index_reviews_on_gym_id"
+    t.index ["host_id"], name: "index_reviews_on_host_id"
+    t.index ["reservation_id"], name: "index_reviews_on_reservation_id"
   end
 
   create_table "users", force: :cascade do |t|

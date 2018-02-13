@@ -14,6 +14,7 @@ $facebook:                        #3b5998;
 
 body {
   font-family: 'Montserrat', sans-serif;
+  color: $dark;
   
     li {
     list-style: none !important;
@@ -219,6 +220,10 @@ hr {
   box-shadow: none;
   -webkit-box-shadow: none;
   -moz-box-shadow: none;
+}
+
+.btn.btn-default.btn-host {
+  margin-top: 17px;
 }
 
 

@@ -142,7 +142,18 @@
     </div>
     <hr>
     <!-- Reviews -->
-
+    <div class="row">
+      <div class="col-md-12">
+        <h3>
+          <%= pluralize(@guest_reviews.count, "Review") %>&nbsp;
+          <span id="average_rating"></span>
+        </h3>
+        <br>
+        <div class="container">
+          <div><%= render "reviews/guest_list" %></div>
+        </div>
+      </div>
+    </div>
   </div> 
   <!-- Right Panel -->
   <div class="col-md-4">
@@ -150,4 +161,12 @@
     <!-- Reservation Form -->  
     <%= render 'reservations/form' %>
   </div>
-</div> 
+</div>
+
+<script>
+  $('#average_rating').raty({
+    path: '/assets',
+    readOnly: true,
+    score: <%= @gym.average_rating %>
+  });
+</script>

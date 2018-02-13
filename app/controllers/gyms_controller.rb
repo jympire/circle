@@ -24,6 +24,7 @@ class GymsController < ApplicationController
   def show
     @photos = @gym.photos
     @user = @gym.user
+    @guest_reviews = @gym.guest_reviews
   end
 
   def listing

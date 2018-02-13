@@ -2,6 +2,7 @@ class Gym < ApplicationRecord
   belongs_to :user
   has_many :photos
   has_many :reservations
+  has_many :guest_reviews
   
   geocoded_by :address_string
   after_validation :geocode, if: :address_string_changed?
@@ -14,5 +15,9 @@ class Gym < ApplicationRecord
     else
       "blank.jpg"
     end
+  end
+  
+  def average_rating
+    guest_reviews.count == 0 ? 0 : guest_reviews.average(:star).round(2).to_i
   end
 end
