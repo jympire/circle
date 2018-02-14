@@ -38,7 +38,7 @@ body {
   }
 
   a:hover {
-    text-decoration: underline;
+    text-decoration: none;
     color: $primary;
   }
 
@@ -118,7 +118,7 @@ hr {
 .navbar-default .navbar-brand {
   color: $primary;
   font-weight: 600;
-  vertical-align: middle !important;
+  margin-top: 8px;
   
   &:hover {
     color: $primary;
@@ -127,12 +127,16 @@ hr {
 
 .navbar-default .navbar-brand.user {
   color: $primary;
-  font-weight: 800;
+  font-weight: 700;
   margin-top: 8px !important;
   
   &:hover {
     color: $primary;
   }
+}
+
+.navbar-default .guest li a{
+  margin-top: 8px;
 }
 
 .dropdown-menu > li > a:hover {
@@ -525,15 +529,4 @@ input[type="checkbox"]:checked:before {
   font-size: 16px;
   font-weight: 600;
   color: $primary;
-}
-
-.form-group.search {
-  box-shadow: 0 4px 8px 0 $border;
-  -moz-box-shadow: 0 4px 8px 0 $border;
-  -webkit-box-shadow: 0 4px 8px 0 $border;
-  border-radius: 0.25rem;
-  -webkit-border-radius: 0.25rem;
-  -moz-border-radius: 0.25rem;
-  overflow: hidden;
-  background: $white;
 }
