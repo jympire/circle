@@ -1,0 +1,23 @@
+<% gyms.each do |gym| %>
+  <div class="col-md-4">
+    <div class="panel panel-default">
+      <div class="panel-heading preview">
+        <%= link_to image_tag(gym.cover_photo(:medium)), gym %>
+      </div>
+      <div class="panel-body">
+        <h6><%= gym.gym_type %></h6>
+        <h5><%= link_to gym.listing_name, gym %></h5>
+        $<%= gym.price %> per day
+        <div id="star_<%= gym.id %>"></div> <%= pluralize(gym.average_rating, "review") %>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    $('#star_<%= gym.id %>').raty({
+      path: '/assets',
+      readOnly: true,
+      score: <%= gym.average_rating %>
+    });
+  </script>
+<% end %>
