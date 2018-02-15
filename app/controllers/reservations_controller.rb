@@ -1,5 +1,6 @@
 class ReservationsController < ApplicationController
   before_action :authenticate_user!
+  before_action :set_reservation, only: [:approve, :decline]
   
   def create
     gym = Gym.find(params[:gym_id])
@@ -15,9 +16,19 @@ class ReservationsController < ApplicationController
       @reservation.gym = gym
       @reservation.price = gym.price
       @reservation.total = gym.price * days
-      @reservation.save
+      # @reservation.save
+      
+      if @reservation.save
+        if gym.Request?
+          flash[:notice] = "Request sent successfully!"
+        else
+          @reservation.Approved!
+          flash[:notice] = "Reservation created successfully!"
+        end
+      else
+        flash[:alert] = "Cannot make a reservation!"  
+      end
 
-      flash[:notice] = "Booked Successfully!"
     end
     redirect_to gym
   end
@@ -30,7 +41,22 @@ class ReservationsController < ApplicationController
     @gyms = current_user.gyms
   end
   
+  def approve
+    @reservation.Approved!
+    redirect_to your_reservations_path
+  end
+
+  def decline
+    @reservation.Declined!
+    redirect_to your_reservations_path
+  end
+  
   private
+  
+    def set_reservation
+      @reservation = Reservation.find(params[:id])
+    end
+  
     def reservation_params
       params.require(:reservation).permit(:start_date, :end_date)
     end

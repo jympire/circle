@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180215141206) do
+ActiveRecord::Schema.define(version: 20180215181122) do
 
   create_table "gyms", force: :cascade do |t|
     t.string   "gym_type"
@@ -32,10 +32,11 @@ ActiveRecord::Schema.define(version: 20180215141206) do
     t.integer  "price"
     t.boolean  "active"
     t.integer  "user_id"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
     t.float    "latitude"
     t.float    "longitude"
+    t.integer  "instant",        default: 1
     t.index ["user_id"], name: "index_gyms_on_user_id"
   end
 
@@ -57,8 +58,9 @@ ActiveRecord::Schema.define(version: 20180215141206) do
     t.datetime "end_date"
     t.integer  "price"
     t.integer  "total"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+    t.integer  "status",     default: 0
     t.index ["gym_id"], name: "index_reservations_on_gym_id"
     t.index ["user_id"], name: "index_reservations_on_user_id"
   end

@@ -61,7 +61,7 @@ class GymsController < ApplicationController
   # --- Reservations ---
   def preload
     today = Date.today
-    reservations = @gym.reservations.where("start_date >= ? OR end_date >= ?", today, today)
+    reservations = @gym.reservations.where("(start_date >= ? OR end_date >= ?) AND status = ?", today, today, 1)
 
     render json: reservations
   end
@@ -79,7 +79,7 @@ class GymsController < ApplicationController
   
   private
     def is_conflict(start_date, end_date, gym)
-      check = gym.reservations.where("? < start_date AND end_date < ?", start_date, end_date)
+      check = gym.reservations.where("(? < start_date AND end_date < ?) AND status = ?", start_date, end_date, 1)
       check.size > 0? true : false
     end
   
@@ -96,6 +96,6 @@ class GymsController < ApplicationController
     end
 
     def gym_params
-      params.require(:gym).permit(:gym_type, :listing_name, :summary, :address_string, :is_internet, :is_lounge, :is_pool, :is_shower, :is_towel, :is_yoga, :is_cycling, :is_pilates, :is_basketball, :is_childcare, :is_weights, :is_boxing, :price, :active)
+      params.require(:gym).permit(:gym_type, :listing_name, :summary, :address_string, :is_internet, :is_lounge, :is_pool, :is_shower, :is_towel, :is_yoga, :is_cycling, :is_pilates, :is_basketball, :is_childcare, :is_weights, :is_boxing, :price, :active, :instant)
     end
 end

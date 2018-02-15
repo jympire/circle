@@ -1,6 +1,6 @@
 <div class="panel panel-default"> 
   <div class="panel-heading">
-    <span><i class="fa fa-bolt" style="color: #fbbc05"></i> $<%= @gym.price %></span>
+    <span><% if @gym.Instant? %><i class="fa fa-bolt" style="color: #fbbc05"></i><% end %> $<%= @gym.price %></span>
     <span class="pull-right">Per Day</span>
   </div> 
   <div class="panel-body">
@@ -37,7 +37,11 @@
       </div>
       
       <br>
-      <%= f.submit "Book Now", id: "btn_book", class: "btn btn-submit btn-block", disabled: true %>
+      <% if @gym.Instant? %>
+          <%= f.submit "Book Now", id: "btn_book", class: "btn btn-submit btn-block", disabled: true %>
+      <% else %>
+          <%= f.submit "Request Now", id: "btn_book", class: "btn btn-submit btn-block", disabled: true %>
+      <% end %>
     <% end %>
   </div>
 </div>

@@ -18,7 +18,7 @@
             <div class="col-md-2">
               <%= booking.start_date.strftime('%v') %> to <%= booking.end_date.strftime('%v') %>
               <br>
-              <h5></h5>
+              <h5><%= booking.status %></h5>
             </div>
             <div class="col-md-2">
               <%= link_to gym_path(booking.gym) do %>
@@ -35,7 +35,7 @@
               </span>
             </div>
             <div class="col-md-3 text-right">
-              <%= render partial: "reviews/guest_form", locals: {reservation: booking} %>
+              <%= render partial: "reviews/guest_form", locals: {reservation: booking} if booking.Approved? %>
             </div>
           </div>
           <hr/>

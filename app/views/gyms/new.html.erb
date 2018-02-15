@@ -22,6 +22,12 @@
                                 id: "gym_type", prompt: "Select...", class: "form-control" %>
                 </div>
               </div>
+              <div class="col-md-4 select">
+                <div class="form-group">
+                  <label>Booking Type</label>
+                  <%= f.select :instant, Gym.instants.map {|key,value| [key.humanize, key]}, selected: @gym.Request? ? 'Request' : 'Instant', prompt: "Select...", class: "form-control" %>
+                </div>
+              </div>
             </div>
 
             <div><%= f.submit "Create Listing", class: "btn btn-submit" %></div>
