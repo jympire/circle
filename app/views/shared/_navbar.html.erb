@@ -46,6 +46,9 @@
                   <%= image_tag avatar_url(current_user), class: "img-circle avatar-small" %>
             </a>
             <ul class="dropdown-menu">
+              <li><%= link_to "Dashboard", dashboard_path %>
+              </li>
+              <hr>
               <li><%= link_to "Edit Profile", edit_user_registration_path %>
               </li>
               <hr>
@@ -65,3 +68,15 @@
     </div><!--/.nav-collapse -->
   </div>
 </nav>
+
+
+<% if (user_signed_in?) && !current_page?(root_path) && !current_page?("/gyms/#{params[:id]}")%>
+    <nav class="navbar navbar-default">
+      <div class="container">
+        <ul class="nav navbar-nav">
+          <li <% if current_page?(dashboard_path) %> class="active" <% end %> ><%= link_to "Dashboard", dashboard_path %></li>
+          <li <% if current_page?(gyms_path) %> class="active" <% end %> ><%= link_to "Manage Listings", gyms_path %></li>
+        </ul>
+      </div>
+    </nav>
+<% end %>

@@ -37,6 +37,10 @@
         <br>
 
         <center><span>Don't have an account? <%= link_to "Sign up", new_registration_path(resource_name) %></span></center>
+                   
+        <br>
+
+        <center><span><%= link_to "Resend confirmation instructions", new_user_confirmation_path(resource_name) %></span></center>
 
         <% end %>
 
