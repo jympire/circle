@@ -48,11 +48,11 @@ class CalendarsController < ApplicationController
                       .select('reservations.*, users.first_name, users.last_name, users.image, users.email, users.uid')
                       .where('(start_date BETWEEN ? AND ?) AND status <> ?', first_of_month, end_of_month, 2)
       @events.each{ |e| e.image = avatar_url(e) }
-      
+      @days = Calendar.where("gym_id = ? AND day BETWEEN ? AND ?", params[:gym_id], first_of_month, end_of_month)
     else
       @gym = nil
       @events = []
-      
+      @days = []
     end
   end
 

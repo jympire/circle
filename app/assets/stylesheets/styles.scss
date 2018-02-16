@@ -439,6 +439,11 @@ input[type="checkbox"]:checked:before {
   transform: scale(0.94, 0.62);
 }
 
+.form-group input[type="radio"] {
+  height: 15px;
+  margin-right: 10px;
+}
+
 
 /* Photo Upload */
 .btn-file {
