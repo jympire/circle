@@ -530,3 +530,49 @@ input[type="checkbox"]:checked:before {
   font-weight: 600;
   color: $primary;
 }
+
+
+/* Calender */
+.fc-content.Waiting {
+  background-color: $tertiary;
+}
+
+.fc-past {
+  background-color: lightgrey;
+}
+
+.fc-day {
+  position: relative;
+}
+
+.fc-content {
+  background-color: $secondary;
+  height: 35px;
+  border-radius: 50px;
+}
+
+.fc-event {
+  border: none !important;
+  background-color: transparent !important;
+}
+
+.fc-title {
+  font-size: 14px;
+  position: relative;
+  top: 7px;
+  left: 20px;
+}
+
+.day-price {
+  position: absolute;
+  color: $tertiary;
+  bottom: 2px;
+  right: 2px;
+}
+
+.badge {
+  background-color: $primary;
+  position: relative;
+  top: -10px;
+  left: -5px;
+}
