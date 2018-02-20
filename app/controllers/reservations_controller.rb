@@ -63,6 +63,10 @@ class ReservationsController < ApplicationController
           :amount => reservation.total * 100,
           :description => gym.listing_name,
           :currency => "usd",
+          :destination => {
+            :amount => reservation.total * 80, # 80% of the total amount goes to the Host
+            :account => gym.user.merchant_id # Host's Stripe customer ID
+          }
         )
 
         if charge

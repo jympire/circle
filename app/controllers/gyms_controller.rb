@@ -12,6 +12,10 @@ class GymsController < ApplicationController
   end
 
   def create
+    if !current_user.is_active_host
+      return redirect_to payout_method_path, alert: "Please Connect to Stripe Express first."
+    end
+    
     @gym = current_user.gyms.build(gym_params)
     if @gym.save
       redirect_to listing_gym_path(@gym), notice: "Saved."

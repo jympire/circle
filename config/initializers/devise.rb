@@ -278,4 +278,6 @@ Devise.setup do |config|
   # config.omniauth_path_prefix = '/my_engine/users/auth'
   
   config.omniauth :facebook, ENV["facebook_app_id"], ENV["facebook_app_secret"], scope: 'email', info_fields: 'email, first_name, last_name'
+  
+  config.omniauth :stripe_connect, ENV['STRIPE_CA_ID'], ENV['STRIPE_SECRET_KEY'], scope: 'read_write', stripe_landing: 'login'
 end
