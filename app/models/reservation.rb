@@ -3,4 +3,10 @@ class Reservation < ApplicationRecord
   
   belongs_to :user
   belongs_to :gym
+  
+  scope :current_week_revenue, -> (user) {
+    joins(:gym)
+    .where("gyms.user_id = ? AND reservations.updated_at >= ? AND reservations.status = ?", user.id, 1.week.ago, 1)
+    .order(updated_at: :asc)
+  }
 end
