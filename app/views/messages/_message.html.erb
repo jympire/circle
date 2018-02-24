@@ -1,0 +1,11 @@
+<div class="panel panel-default">
+  <div class="panel-body">
+    <%= image_tag avatar_url(message.user), class: "img-circle avatar-medium" %>
+    <strong><%= message.user.first_name %></strong>
+    <span class="pull-right"><%= message.message_time %></span>
+    <br>
+    <div class="row-space-2">
+      <%= message.context %>
+    </div>
+  </div>
+</div>
