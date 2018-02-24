@@ -20,7 +20,7 @@ class GymsController < ApplicationController
     if @gym.save
       redirect_to listing_gym_path(@gym), notice: "Saved."
     else
-      flash[:alert] = "Select your gym type."
+      flash[:alert] = "Something went wrong."
       render :new
     end
   end
@@ -62,14 +62,6 @@ class GymsController < ApplicationController
     redirect_back(fallback_location: request.referer)
   end
   
-  # --- Reservations ---
-  def preload
-    today = Date.today
-    reservations = @gym.reservations.where("(start_date >= ? OR end_date >= ?) AND status = ?", today, today, 1)
-
-    render json: reservations
-  end
-
   def preview
     start_date = Date.parse(params[:start_date])
     end_date = Date.parse(params[:end_date])
@@ -81,9 +73,24 @@ class GymsController < ApplicationController
     render json: output
   end
   
+  # --- Reservations ---
+  def preload
+    today = Date.today
+    
+    unavailable_dates = @gym.calendars.where("status = ? AND day > ?", 1, today)
+    
+    special_dates = @gym.calendars.where("status = ? AND day > ? AND price <> ?",0, today, @gym.price)
+
+    render json: {
+        unavailable_dates: unavailable_dates,
+        special_dates: special_dates
+    }
+  end
+  
   private
     def is_conflict(start_date, end_date, gym)
-      check = gym.reservations.where("(? < start_date AND end_date < ?) AND status = ?", start_date, end_date, 1)
+      check = gym.calendars.where("day BETWEEN ? AND ? AND status = ?", start_date, end_date, 1).limit(1)
+
       check.size > 0? true : false
     end
   
