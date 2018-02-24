@@ -55,6 +55,15 @@ class ReservationsController < ApplicationController
   
   private
   
+    def send_sms(gym, reservation)
+      @client = Twilio::REST::Client.new
+      @client.messages.create(
+        from: '+14243591303',
+        to: gym.user.phone_number,
+        body: "#{reservation.user.first_name} #{reservation.user.last_name} booked '#{gym.listing_name}'"
+      )
+    end
+  
     def charge(gym, reservation)
       if !reservation.user.stripe_id.blank?
         customer = Stripe::Customer.retrieve(reservation.user.stripe_id)
@@ -71,6 +80,8 @@ class ReservationsController < ApplicationController
 
         if charge
           reservation.Approved!
+          ReservationMailer.send_email_to_guest(reservation.user, gym).deliver_later
+          send_sms(gym, reservation)
           flash[:notice] = "Reservation created successfully!"
         else
           reservation.Declined!

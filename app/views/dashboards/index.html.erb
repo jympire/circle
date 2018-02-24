@@ -1,34 +1,32 @@
-<div class="container content">
-  <div class="row">
-    <div class="col-md-3">
-      <div class="center">
-        <%= image_tag avatar_url(current_user), class: "avatar-full" %>
-      </div> 
-      <br><br>
-      <div class="panel panel-default">
-        <div class="panel-heading"><%= current_user.first_name %> <%= current_user.last_name %></div>
-        <div class="panel-body">
-          <ul class="sidebar-list">
-            <% if current_user.confirmation_token %>
-              <li>Email Address<span class="pull-right icon-babu"><i class="fa fa-check-circle-o"></i></span></li>
-            <% end %>
-            <% if current_user.provider %>
-              <li>Facebook<span class="pull-right icon-babu"><i class="fa fa-check-circle-o"></i></span></li>
-            <% end %>
-            <% if current_user.phone_verified %>
-              <br>
-              <li>Phone Number<span class="pull-right icon-babu"><i class="fa fa-check-circle-o"></i></span></li>
-            <% end %>
-          </ul>  
-        </div>
-      </div>
-      
-    </div>
-    <div class="col-md-9">
-      <h4>Your Listings (<%= @gyms.length %>)</h4><br/>
-      <div class="row" id="gym_listing">
-        <%= render partial: "gyms/gyms_list", locals: {gyms: @gyms} %>
+<div class="row">
+  <div class="col-md-3">
+    <div class="center">
+      <%= image_tag avatar_url(current_user), class: "avatar-full" %>
+    </div> 
+    <br><br>
+    <div class="panel panel-default">
+      <div class="panel-heading"><%= current_user.first_name %> <%= current_user.last_name %></div>
+      <div class="panel-body">
+        <ul class="sidebar-list">
+          <% if current_user.confirmation_token %>
+            <li>Email Address<span class="pull-right icon-babu"><i class="fa fa-check-circle-o"></i></span></li>
+          <% end %>
+          <% if current_user.provider %>
+            <li>Facebook<span class="pull-right icon-babu"><i class="fa fa-check-circle-o"></i></span></li>
+          <% end %>
+          <% if current_user.phone_verified %>
+            <br>
+            <li>Phone Number<span class="pull-right icon-babu"><i class="fa fa-check-circle-o"></i></span></li>
+          <% end %>
+        </ul>  
       </div>
     </div>
-  </div>  
-</div>
+
+  </div>
+  <div class="col-md-9">
+    <h4>Your Listings (<%= @gyms.length %>)</h4><br/>
+    <div class="row" id="gym_listing">
+      <%= render partial: "gyms/gyms_list", locals: {gyms: @gyms} %>
+    </div>
+  </div>
+</div>  
