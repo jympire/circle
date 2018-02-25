@@ -2,6 +2,15 @@ class PagesController < ApplicationController
   def home
     @gyms = Gym.where(active: true).limit(12)
   end
+  
+  def host
+  end
+  
+  def terms
+  end
+  
+  def privacy
+  end
 
   def search
     # STEP 1

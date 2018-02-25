@@ -56,6 +56,77 @@ body {
   color: $primary;
 }
 
+p {
+  font-weight: 300;
+}
+
+.capital {
+  text-transform: uppercase;
+}
+
+.faq-list {
+  background-color: $white;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  padding-right: 40px;
+  padding-left: 40px;
+  border-bottom: 3px solid $border;
+  
+  h1 {
+    font-size: 2.2em;
+  }
+  
+  .panel {
+    box-shadow: none;
+  }
+  
+  .panel-heading {
+    border: none;
+  }
+  
+  h3 {
+    text-transform: uppercase;
+  }
+  
+  .panel-title {
+    color: $secondary;
+  }
+}
+
+.why-host {
+  background-color: $white;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  border-top: 3px solid $border;
+  border-bottom: 3px solid $border;
+  margin-top: 70px;
+  
+  p {
+    font-weight: 300;
+  }
+}
+
+.how-to {
+  background-color: $white;
+  min-height: 750px;
+  border-bottom: 3px solid $border;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  
+  .pic {
+    padding-bottom: 50px;
+  }
+}
+
+.number {
+  font-size: 3em;
+  color: $tertiary;
+}
+
+.start-hosting {
+  padding-top: 50px;
+}
+
 
 /* Container */
 .container {
@@ -230,6 +301,20 @@ hr {
 
 .btn.btn-default.btn-host {
   margin-top: 17px;
+}
+
+.btn.btn-start {
+  border: 2px solid $primary;
+  background-color: $primary !important;
+  color: $white;
+  padding: 10px 25px 10px 25px;
+  font-size: 1.2em;
+  font-weight: 500;
+}
+
+.btn.btn-start:hover {
+  background: $primary;
+  color: $white;
 }
 
 
