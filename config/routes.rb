@@ -4,6 +4,13 @@ Rails.application.routes.draw do
   get 'host' , to: 'pages#host'
   get 'terms' , to: 'pages#terms'
   get '/terms/privacy_policy' , to: 'pages#privacy'
+  get '/terms/nondiscrimination_policy' , to: 'pages#nondiscrimination'
+  get '/terms/payments_terms' , to: 'pages#payments'
+  get '/terms/host_guarantee' , to: 'pages#host_guarantee'
+  get '/terms/guest_refund_policy' , to: 'pages#guest_refund'
+  get '/terms/copyright_policy' , to: 'pages#copyright'
+  get '/terms/cookie_policy' , to: 'pages#cookie'
+  get '/terms/guest_waiver' , to: 'pages#guest_waiver'
 
   devise_for :users,
              path: '',
