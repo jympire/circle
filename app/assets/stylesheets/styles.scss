@@ -16,11 +16,6 @@ body {
   font-family: 'Montserrat', sans-serif;
   color: $dark;
   
-    li {
-    list-style: none !important;
-    text-decoration: none !important;
-  }
-  
   li a {
     list-style: none;
   }
@@ -125,6 +120,13 @@ p {
 
 .start-hosting {
   padding-top: 50px;
+}
+
+.no-bullet {
+  li {
+    list-style: none !important;
+    text-decoration: none !important
+  }
 }
 
 
