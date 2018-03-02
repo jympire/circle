@@ -18,7 +18,7 @@ class User < ApplicationRecord
   after_create :add_setting
 
   def add_setting
-    Setting.create(user: self, enable_sms: true, enable_email: true)
+    Setting.create(user: self, enable_sms: false, enable_email: true)
   end
   
   def self.from_omniauth(auth)
