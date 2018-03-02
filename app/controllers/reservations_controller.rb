@@ -70,7 +70,7 @@ class ReservationsController < ApplicationController
       @client.messages.create(
         from: '+14243591303',
         to: gym.user.phone_number,
-        body: "#{reservation.user.fullname} booked '#{gym.listing_name}'"
+        body: "#{reservation.user.first_name} booked '#{gym.listing_name}'"
       )
     end
 
