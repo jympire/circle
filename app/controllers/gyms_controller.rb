@@ -30,6 +30,9 @@ class GymsController < ApplicationController
     @user = @gym.user
     @guest_reviews = @gym.guest_reviews
   end
+  
+  def destroy
+  end
 
   def listing
   end
