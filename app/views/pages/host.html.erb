@@ -16,15 +16,17 @@
   <div class="why-host">
     <div class="container">
       <div class="row">
-        <div class="col-md-4">
+        <div class="col-md-4 text-center">
           <h3>Why host on Circle</h3> 
           <p>No matter what kind of gym or space you have to share, Circle makes it simple and secure to earn money and reach thousands of trainers and guests looking for unique places to train, just like yours.</p>  
+          <br>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-4 text-center">
           <h3>You're in control</h3>
-          <p>With Circle, you’re in full control of your availability, prices, gym rules, and how you interact with trainers and guests. </p>  
+          <p>With Circle, you’re in full control of your availability, prices, gym rules, and how you interact with trainers and guests. </p> 
+          <br> 
         </div>
-        <div class="col-md-4">
+        <div class="col-md-4 text-center">
           <h3>We're there at every step</h3>
           <p>Circle offers tools, hospitality tips, support, and an online community of experienced hosts for questions and sharing ideas for success.</p>  
         </div> 
@@ -41,21 +43,27 @@
           <span><h2>Create your listing</h2></span>
           <p>It’s free and easy to create a listing on Circle. Describe your space, list your equipment and amenities, and add photos and details.</p>
           <br>
-          <%= image_tag('create.jpg', :height => 400, alt: 'list') %> 
+          <center>
+            <%= image_tag('create.jpg', :height => 400, alt: 'list') %> 
+          </center> 
         </div>
         <div class="col-md-4">
           <span class="pull-left number"><h1>2</h1></span>&emsp;
           <span><h2>Welcome guests</h2></span>
           <p>Get to know trainers and guests before arrival by messaging them on our platform. Give them a tour of your facility and equipment.</p>
           <br>
-          <%= image_tag('welcome.jpg', :height => 400, alt: 'welcom') %>  
+          <center>
+            <%= image_tag('welcome.jpg', :height => 400, alt: 'welcome') %>  
+          </center>
         </div>
         <div class="col-md-4">
           <span class="pull-left number"><h1>3</h1></span>&emsp;
           <span><h2>Get paid</h2></span>
           <p>Circle’s secure payment system means you never have to deal with money directly. Trainers and guests are charged before arrival, and you are paid automatically.</p>
           <br>
-          <%= image_tag('paid.jpg', :height => 400, alt: 'paid') %> 
+          <center>
+            <%= image_tag('paid.jpg', :height => 400, alt: 'paid') %>  
+          </center> 
         </div>  
       </div>
     </div>
@@ -114,7 +122,7 @@
                 </h4>
               </div>
               <div id="collapse4" class="panel-collapse collapse">
-                <div class="panel-body">We suggest two listings; one for trainers and one for clients and guests. What you charge is always up to you, but we recommend $15 per day for trainers and $15 per day for clients and other guests. When you create a listing on Circle, try to price your property based on your location, equipment and amenities.</div>
+                <div class="panel-body">We suggest two listings; one for trainers and one for clients and guests. What you charge is always up to you, but we recommend $10-20 per day for trainers and $10-20 per day for clients and other guests. When you create a listing on Circle, try to price your property based on your location, equipment and amenities.</div>
               </div>
             </div>
             <div class="panel">
@@ -146,7 +154,7 @@
   </div>
   <div class="start-hosting">
     <div class="col-xs-offset-2 col-sm-offset-2 col-md-offset-2">
-      <h2>Start Creating your listing</h2>
+      <h2>Start creating your listing</h2>
       <br>
       <div>
         <%= link_to 'Get Started', new_gym_path, :class => "btn btn-start" %>

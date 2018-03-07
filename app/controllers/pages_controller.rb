@@ -32,6 +32,9 @@ class PagesController < ApplicationController
   
   def guest_waiver
   end
+  
+  def howitworks
+  end
 
   def search
     # STEP 1

@@ -61,7 +61,7 @@ p {
 
 .faq-list {
   background-color: $white;
-  padding-top: 50px;
+  padding-top: 25px;
   padding-bottom: 50px;
   padding-right: 40px;
   padding-left: 40px;
@@ -89,11 +89,10 @@ p {
 }
 
 .why-host {
-  background-color: $white;
+  background-color: $primary;
+  color: $white;
   padding-top: 50px;
   padding-bottom: 50px;
-  border-top: 3px solid $border;
-  border-bottom: 3px solid $border;
   margin-top: 70px;
   
   p {
@@ -104,7 +103,6 @@ p {
 .how-to {
   background-color: $white;
   min-height: 750px;
-  border-bottom: 3px solid $border;
   padding-top: 50px;
   padding-bottom: 50px;
   
@@ -734,5 +732,20 @@ input[type="checkbox"]:checked:before {
 
 .error {
   color: $quaternary;
+}
+
+
+/* Host */
+.host-header {
+  margin-top: 50px;
+}
+
+
+/* Home Page */
+.banner {
+  margin-bottom: 100px;
+  h3 {
+    font-weight: bold;
+  }
 }
 

@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   get '/terms/copyright_policy' , to: 'pages#copyright'
   get '/terms/cookie_policy' , to: 'pages#cookie'
   get '/terms/guest_waiver' , to: 'pages#guest_waiver'
+  get '/howitworks' , to: 'pages#howitworks'
 
   devise_for :users,
              path: '',
