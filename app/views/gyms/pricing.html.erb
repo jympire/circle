@@ -1,28 +1,30 @@
-<div class="row">
-  <div class="col-md-3">
-    <%= render 'gym_menu' %>
-    <br>
-  </div>
-  <div class="col-md-9">
-    <div class="panel panel-default">
-      <div class="panel-heading">Price</div>
-      <div class="panel-body">
-        <div class="container">
-          <%= form_for @gym do |f| %>
+<div class="container content">
+  <div class="row">
+    <div class="col-md-3">
+      <%= render 'gym_menu' %>
+      <br>
+    </div>
+    <div class="col-md-9">
+      <div class="panel panel-default">
+        <div class="panel-heading">Price</div>
+        <div class="panel-body">
+          <div class="container">
+            <%= form_for @gym do |f| %>
 
-            <div class="row">
-              <div class="form-group">
-                <%= f.text_field :price, placeholder: "Set your daily price. e.g. 60", class: "form-control", required: true %>
+              <div class="row">
+                <div class="form-group">
+                  <%= f.text_field :price, placeholder: "Set your daily price. e.g. 60", class: "form-control", required: true %>
+                </div>
               </div>
-            </div>
 
-            <div class="text-center">
-              <%= f.submit "Save", class: "btn btn-save" %>
-            </div>
-          <% end %>
+              <div class="text-center">
+                <%= f.submit "Save", class: "btn btn-save" %>
+              </div>
+            <% end %>
+          </div>
         </div>
-      </div>
-    </div>  
-  </div>
-</div>  
+      </div>  
+    </div>
+  </div> 
+</div> 
 

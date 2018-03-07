@@ -1,38 +1,40 @@
-<div class="row">
-  <div class="col-md-3">
-    <%= render 'gym_menu' %>
-    <br>
-  </div>
-  <div class="col-md-9">
-    <div class="panel panel-default">
-      <div class="panel-heading">Listing</div>
-      <div class="panel-body">
-        <div class="container">
-          <%= form_for @gym do |f| %>
+<div class="container content">
+  <div class="row">
+    <div class="col-md-3">
+      <%= render 'gym_menu' %>
+      <br>
+    </div>
+    <div class="col-md-9">
+      <div class="panel panel-default">
+        <div class="panel-heading">Listing</div>
+        <div class="panel-body">
+          <div class="container">
+            <%= form_for @gym do |f| %>
 
-            <div class="row">
-              <div class="col-md-4 select">
-                <div class="form-group">
-                  <label>Gym Type</label>
-                  <br>
-                  <%= f.select :gym_type, [["Fitness Center", "Fitness Center"], ["Crossfit Box", "Crossfit Box"], ["Studio", "Studio"], ["Sports Training", "Sports Training"]],
-                                id: "gym_type", prompt: "Select...", class: "form-control" %>
+              <div class="row">
+                <div class="col-md-4 select">
+                  <div class="form-group">
+                    <label>Gym Type</label>
+                    <br>
+                    <%= f.select :gym_type, [["Fitness Center", "Fitness Center"], ["Crossfit Box", "Crossfit Box"], ["Studio", "Studio"], ["Sports Training", "Sports Training"]],
+                                  id: "gym_type", prompt: "Select...", class: "form-control" %>
+                  </div>
+                </div>
+                <div class="col-md-4 select">
+                  <div class="form-group">
+                    <label>Booking Type</label>
+                    <%= f.select :instant, Gym.instants.map {|key,value| [key.humanize, key]}, selected: @gym.Request? ? 'Request' : 'Instant', prompt: "Select...", class: "form-control" %>
+                  </div>
                 </div>
               </div>
-              <div class="col-md-4 select">
-                <div class="form-group">
-                  <label>Booking Type</label>
-                  <%= f.select :instant, Gym.instants.map {|key,value| [key.humanize, key]}, selected: @gym.Request? ? 'Request' : 'Instant', prompt: "Select...", class: "form-control" %>
-                </div>
-              </div>
-            </div>
 
-            <div><%= f.submit "Save", class: "btn btn-save" %></div>
+              <div><%= f.submit "Save", class: "btn btn-save" %></div>
 
-          <% end %>
+            <% end %>
+          </div>
         </div>
-      </div>
-    </div>  
-  </div>
-</div> 
+      </div>  
+    </div>
+  </div> 
+</div>
 

@@ -1,158 +1,160 @@
-<div class="row">
-  <div class="col-md-3">
-    <h5 class="sidebar-item sidebar-link active text-center">Edit Your Profile</h5> 
-    <br>
-    <%= link_to "View My Profile", user_path(current_user.id), class: "btn btn-default" %>  
-    <br><br>
-    <div class="panel panel-default">
-      <div class="panel-heading">Phone Number</div>
-      <div class="panel-body">
-        <div>
-          <% if !current_user.phone_number.blank? %>
-            <h4><center><%= current_user.phone_number %></center></h4>
-            <button class="btn btn-default" data-toggle="modal" data-target="#update-phone">Update Phone Number</button>
-            <% if current_user.phone_verified == false %>
-              <br><br>
-              <button class="btn btn-default" data-toggle="modal" data-target="#verify-phone">Verify</button>
+<div class="container content">
+  <div class="row">
+    <div class="col-md-3">
+      <h5 class="sidebar-item sidebar-link active text-center">Edit Your Profile</h5> 
+      <br>
+      <%= link_to "View My Profile", user_path(current_user.id), class: "btn btn-default" %>  
+      <br><br>
+      <div class="panel panel-default">
+        <div class="panel-heading">Phone Number</div>
+        <div class="panel-body">
+          <div>
+            <% if !current_user.phone_number.blank? %>
+              <h4><center><%= current_user.phone_number %></center></h4>
+              <button class="btn btn-default" data-toggle="modal" data-target="#update-phone">Update Phone Number</button>
+              <% if current_user.phone_verified == false %>
+                <br><br>
+                <button class="btn btn-default" data-toggle="modal" data-target="#verify-phone">Verify</button>
+              <% end %>
+            <% else %>
+              <button class="btn btn-default" data-toggle="modal" data-target="#update-phone">Add Phone Number</button>
             <% end %>
-          <% else %>
-            <button class="btn btn-default" data-toggle="modal" data-target="#update-phone">Add Phone Number</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <br>
+
+    <div class="col-md-9">
+      <div class="panel panel-default">
+        <div class="panel-heading">Required</div>
+        <div class="container">
+          <div class="panel-body">
+
+            <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+              <%= devise_error_messages! %>
+
+              <div class="form-group">
+                <%= f.text_field :first_name, placeholder: "First Name", class: "form-control" %>
+              </div>
+
+              <div class="form-group">
+                <%= f.text_field :last_name, placeholder: "Last Name", class: "form-control" %>
+              </div>
+
+              <div class="form-group">
+                <%= f.email_field :email, placeholder: "Email Address", class: "form-control" %>
+              </div>
+
+              <p>Manage your avatar using <a href="https://en.gravatar.com" target="_blank">Gravatar</a>.</p>
+
+              <div class="form-group">
+                <%= f.text_area :description, rows: 5, cols: 25, placeholder: "Circle is built on relationships. Help other people get to know you in 500 characters or less.", class: "form-control" %>
+              </div>
+
+              <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+                <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+              <% end %>
+
+              <div class="form-group">
+                <%= f.password_field :password, autocomplete: "off", placeholder: "New Password (leave blank if you don't want to change it)", class: "form-control" %>
+              </div>
+
+              <div class="form-group">
+                <%= f.password_field :password_confirmation, autocomplete: "off", placeholder: "Confirm Password", class: "form-control" %>
+              </div>
+
+            <p>Optional</p>
+
+            <div class="form-group">
+              <%= f.text_field :title, :placeholder => "Title - e.g. Personal Trainer", class: "form-control" %>
+            </div>
+
+            <div class="form-group">
+              <%= f.text_field :school, :placeholder => "School", class: "form-control" %>
+            </div>
+
+            <div class="form-group">
+              <%= f.text_field :degree, :placeholder => "Degree", class: "form-control" %>
+            </div>
+
+            <div class="form-group">
+              <%= f.text_field :certification, :placeholder => "Primary Certification - e.g. NSCA Strength and Conditioning Specialist", class: "form-control" %>
+            </div>
+
+            <div class="form-group">
+              <%= f.text_field :certification_number, :placeholder => "Primary Certification Number", class: "form-control" %>
+            </div>
+
+            <div class="form-group">
+              <%= f.text_field :insurance, :placeholder => "Trainer Insurance Provider", class: "form-control" %>
+            </div>
+
+            <div class="form-group">
+              <%= f.text_field :insurance_number, :placeholder => "Trainer Insurance Number", class: "form-control" %>
+            </div>
+
+
+          <div class="actions">
+            <%= f.submit "Save", :class => "btn btn-save" %>
+          </div>
+          <% end %>
+        </div> 
+      </div>
+      </div>      
+    </div> 
+  </div> 
+
+
+
+  <!-- MODAL FOR PHONE NUMBER -->
+  <div id="update-phone" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+
+        <div class="modal-header">
+          <button class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Phone Number</h4>
+        </div>
+
+        <div class="modal-body">
+          <%= form_for current_user, url: update_phone_number_user_path(current_user) do |f| %>
+              <div class="form-group">
+                <%= f.phone_field :phone_number, class: "form-control", placeholder: "Your Phone Number" %>
+              </div>
+              <div class="text-center">
+                <%= f.submit "Save", class: "btn btn-save" %>
+              </div>
           <% end %>
         </div>
+
       </div>
     </div>
   </div>
-  
-  <br>
-  
-  <div class="col-md-9">
-    <div class="panel panel-default">
-      <div class="panel-heading">Required</div>
-      <div class="container">
-        <div class="panel-body">
-          
-          <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-            <%= devise_error_messages! %>
 
-            <div class="form-group">
-              <%= f.text_field :first_name, placeholder: "First Name", class: "form-control" %>
-            </div>
+  <!-- MODAL FOR VERIFICATION -->
+  <div id="verify-phone" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
 
-            <div class="form-group">
-              <%= f.text_field :last_name, placeholder: "Last Name", class: "form-control" %>
-            </div>
-
-            <div class="form-group">
-              <%= f.email_field :email, placeholder: "Email Address", class: "form-control" %>
-            </div>
-
-            <p>Manage your avatar using <a href="https://en.gravatar.com" target="_blank">Gravatar</a>.</p>
-
-            <div class="form-group">
-              <%= f.text_area :description, rows: 5, cols: 25, placeholder: "Circle is built on relationships. Help other people get to know you in 500 characters or less.", class: "form-control" %>
-            </div>
-
-            <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-              <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-            <% end %>
-
-            <div class="form-group">
-              <%= f.password_field :password, autocomplete: "off", placeholder: "New Password (leave blank if you don't want to change it)", class: "form-control" %>
-            </div>
-
-            <div class="form-group">
-              <%= f.password_field :password_confirmation, autocomplete: "off", placeholder: "Confirm Password", class: "form-control" %>
-            </div>
-      
-          <p>Optional</p>
-                   
-          <div class="form-group">
-            <%= f.text_field :title, :placeholder => "Title - e.g. Personal Trainer", class: "form-control" %>
-          </div>
-          
-          <div class="form-group">
-            <%= f.text_field :school, :placeholder => "School", class: "form-control" %>
-          </div>
-          
-          <div class="form-group">
-            <%= f.text_field :degree, :placeholder => "Degree", class: "form-control" %>
-          </div>
-          
-          <div class="form-group">
-            <%= f.text_field :certification, :placeholder => "Primary Certification - e.g. NSCA Strength and Conditioning Specialist", class: "form-control" %>
-          </div>
-          
-          <div class="form-group">
-            <%= f.text_field :certification_number, :placeholder => "Primary Certification Number", class: "form-control" %>
-          </div>
-          
-          <div class="form-group">
-            <%= f.text_field :insurance, :placeholder => "Trainer Insurance Provider", class: "form-control" %>
-          </div>
-          
-          <div class="form-group">
-            <%= f.text_field :insurance_number, :placeholder => "Trainer Insurance Number", class: "form-control" %>
-          </div>
-          
-        
-        <div class="actions">
-          <%= f.submit "Save", :class => "btn btn-save" %>
+        <div class="modal-header">
+          <button class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Verification Code</h4>
         </div>
-        <% end %>
-      </div> 
-    </div>
-    </div>      
-  </div> 
-</div> 
 
+        <div class="modal-body">
+          <%= form_for current_user, url: verify_phone_number_user_path(current_user), method: :post do |f| %>
+              <div class="form-group">
+                <%= f.text_field :pin, class: "form-control", placeholder: "Your PIN", value: "" %>
+              </div>
+              <div class="text-center">
+                <%= f.submit "Verify", class: "btn btn-save" %>
+              </div>
+          <% end %>
+        </div>
 
-
-<!-- MODAL FOR PHONE NUMBER -->
-<div id="update-phone" class="modal fade" role="dialog">
-  <div class="modal-dialog">
-    <div class="modal-content">
-
-      <div class="modal-header">
-        <button class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">Phone Number</h4>
       </div>
-
-      <div class="modal-body">
-        <%= form_for current_user, url: update_phone_number_user_path(current_user) do |f| %>
-            <div class="form-group">
-              <%= f.phone_field :phone_number, class: "form-control", placeholder: "Your Phone Number" %>
-            </div>
-            <div class="text-center">
-              <%= f.submit "Save", class: "btn btn-save" %>
-            </div>
-        <% end %>
-      </div>
-
-    </div>
-  </div>
-</div>
-
-<!-- MODAL FOR VERIFICATION -->
-<div id="verify-phone" class="modal fade" role="dialog">
-  <div class="modal-dialog">
-    <div class="modal-content">
-
-      <div class="modal-header">
-        <button class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">Verification Code</h4>
-      </div>
-
-      <div class="modal-body">
-        <%= form_for current_user, url: verify_phone_number_user_path(current_user), method: :post do |f| %>
-            <div class="form-group">
-              <%= f.text_field :pin, class: "form-control", placeholder: "Your PIN", value: "" %>
-            </div>
-            <div class="text-center">
-              <%= f.submit "Verify", class: "btn btn-save" %>
-            </div>
-        <% end %>
-      </div>
-
     </div>
   </div>
 </div>

@@ -1,50 +1,52 @@
-<div class="row">
-  <div class="col-md-3">
-    <ul class="sidebar-list">
-      <li class="sidebar-item"><%= link_to "Payment Method", payment_method_path, class: "sidebar-link active" %></li>
-      <li class="sidebar-item"><%= link_to "Payout Method", payout_method_path, class: "sidebar-link" %></li>
-      <li class="sidebar-item"><%= link_to "Notification Settings", notification_settings_path, class: "sidebar-link" %></li>
-    </ul>
-  </div>
+<div class="container content">
+  <div class="row">
+    <div class="col-md-3">
+      <ul class="sidebar-list">
+        <li class="sidebar-item"><%= link_to "Payment Method", payment_method_path, class: "sidebar-link active" %></li>
+        <li class="sidebar-item"><%= link_to "Payout Method", payout_method_path, class: "sidebar-link" %></li>
+        <li class="sidebar-item"><%= link_to "Notification Settings", notification_settings_path, class: "sidebar-link" %></li>
+      </ul>
+    </div>
 
-  <div class="col-md-9">
-    <div class="panel panel-default">
-      <div class="panel-heading">Payment Method</div>
-      <div class="panel-body">
-        <div class="container">
-                     
-          <%= form_tag("/add_card", method: "post", id: "add-card") do %>
+    <div class="col-md-9">
+      <div class="panel panel-default">
+        <div class="panel-heading">Payment Method</div>
+        <div class="panel-body">
+          <div class="container">
 
-              <label>
-                <span>Name</span>
-                <input name="cardholder-name" class="field" placeholder="Cardholder Name" />
-              </label>
+            <%= form_tag("/add_card", method: "post", id: "add-card") do %>
 
-              <label>
-                <span>Card</span>
-                <div id="card-element" class="field"></div>
-              </label>
+                <label>
+                  <span>Name</span>
+                  <input name="cardholder-name" class="field" placeholder="Cardholder Name" />
+                </label>
 
-              <div class="outcome">
-                <div class="error" role="alert"></div>
-              </div>
+                <label>
+                  <span>Card</span>
+                  <div id="card-element" class="field"></div>
+                </label>
 
-              <% if current_user.stripe_id %>
-                <div class="col-md-offset-4 col-md-4">
-                  <button type="submit" class="btn btn-submit btn-block">Update Card</button>
+                <div class="outcome">
+                  <div class="error" role="alert"></div>
                 </div>
-              <% else %>
-                <div class="col-md-offset-4 col-md-4">
-                  <button type="submit" class="btn btn-submit btn-block">Add Card</button>
-                </div>
-              <% end %>
 
-          <% end %>
+                <% if current_user.stripe_id %>
+                  <div class="col-md-offset-4 col-md-4">
+                    <button type="submit" class="btn btn-submit btn-block">Update Card</button>
+                  </div>
+                <% else %>
+                  <div class="col-md-offset-4 col-md-4">
+                    <button type="submit" class="btn btn-submit btn-block">Add Card</button>
+                  </div>
+                <% end %>
+
+            <% end %>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</div>  
+  </div> 
+</div> 
 
 
 <script src="https://js.stripe.com/v3/"></script>

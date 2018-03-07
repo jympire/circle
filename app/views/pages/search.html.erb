@@ -1,116 +1,118 @@
-<div id="main">
-  <div id="left">
-    <!-- SEARCH PANEL -->
-    <div class="row">
-      <div class="col-md-offset-4 col-md-4">
-        <button id="filter" class="btn btn-default" data-toggle="collapse" data-target="#collapsePanel">
-          More Filters <i class="fa fa-chevron-down"></i>
-        </button>
-      </div>
-    </div>
-
-    <div class="row">
-      <br/>
-      <div class="collapse" id="collapsePanel">
-
-          <%= search_form_for @search, url: search_path, remote: true do |f| %>
-
-              <div class="row">
-                <div class="col-md-6">
-                  <label>Price range:</label>
-                  <div id="slider-range"></div>
-                </div>
-                <div class="col-md-2">
-                  <label>Min Price:</label>
-                  <%= f.text_field :price_gteq, class: "form-control" %>
-                </div>
-                <div class="col-md-2">
-                  <label>Max Price:</label>
-                  <%= f.text_field :price_lteq, class: "form-control" %>
-                </div>
-              </div>
-              <hr/>
-
-              <div class="row">
-                <div class="col-md-offset-2 col-md-4">
-                  <%= text_field_tag :start_date, params[:start_date], readonly: true, placeholder: "Start Date", class: "form-control datepicker" %>
-                </div>
-                &emsp;
-                <div class="col-md-4">
-                  <%= text_field_tag :end_date, params[:end_date], readonly: true, placeholder: "End Date", class: "form-control datepicker" %>
-                </div>
-              </div>
-              <hr/>
-
-              <div class="row">
-                <div class="col-md-3">
-                  <%= check_box_tag "q[gym_type_eq_any][]", "Fitness Center" %> Fitness Center
-                </div>
-                <div class="col-md-3">
-                  <%= check_box_tag "q[gym_type_eq_any][]", "Crossfit Box" %> Crossfit Box
-                </div>
-                <div class="col-md-3">
-                  <%= check_box_tag "q[gym_type_eq_any][]", "Studio" %> Studio
-                </div>
-                <div class="col-md-3">
-                  <%= check_box_tag "q[gym_type_eq_any][]", "Sports Training" %> Sports Training
-                </div>
-              </div>
-              <hr/>
-
-              <div class="row">
-                <div class="col-md-4">
-                  <%= check_box_tag "q[is_weights_eq]", true %> Free Weights/Machines
-                </div>
-                <div class="col-md-4">
-                  <%= check_box_tag "q[is_internet_eq]", true %> Internet
-                </div>
-                <div class="col-md-4">
-                  <%= check_box_tag "q[is_lounge_eq]", true %> Lounge
-                </div>
-                <div class="col-md-4">
-                  <%= check_box_tag "q[is_shower_eq]", true %> Shower
-                </div>
-                <div class="col-md-4">
-                  <%= check_box_tag "q[is_towel_eq]", true %> Towel Service
-                </div>
-                <div class="col-md-4">
-                  <%= check_box_tag "q[is_yoga_eq]", true %> Yoga Equipment
-                </div>
-                <div class="col-md-4">
-                  <%= check_box_tag "q[is_cycling_eq]", true %> Cycling Bikes
-                </div>
-                <div class="col-md-4">
-                  <%= check_box_tag "q[is_pilates_eq]", true %> Pilates Equipment
-                </div>
-                <div class="col-md-4">
-                  <%= check_box_tag "q[is_boxing_eq]", true %> Boxing Equipment
-                </div>
-                <div class="col-md-4">
-                  <%= check_box_tag "q[is_pool_eq]", true %> Swimming Pool
-                </div>
-                <div class="col-md-4">
-                  <%= check_box_tag "q[is_basketball_eq]", true %> Basketball Court
-                </div>
-                <div class="col-md-4">
-                  <%= check_box_tag "q[is_childcare_eq]", true %> Childcare
-                </div>
-              </div>
-              <hr/>
-
-              <div class="row text-center">
-                <%= f.submit "Search", class: "btn btn-save" %>
-              </div>
-          <% end %>
-      </div>
-      <br/>
-
-      <div class="row" id="gym_listing">
-        <%= render partial: "gyms/gyms_list", locals: {gyms: @arrGyms} %>
+<div class="container content">
+  <div id="main">
+    <div id="left">
+      <!-- SEARCH PANEL -->
+      <div class="row">
+        <div class="col-md-offset-4 col-md-4">
+          <button id="filter" class="btn btn-default" data-toggle="collapse" data-target="#collapsePanel">
+            More Filters <i class="fa fa-chevron-down"></i>
+          </button>
+        </div>
       </div>
 
-    </div>
-  </div> 
+      <div class="row">
+        <br/>
+        <div class="collapse" id="collapsePanel">
+
+            <%= search_form_for @search, url: search_path, remote: true do |f| %>
+
+                <div class="row">
+                  <div class="col-md-6">
+                    <label>Price range:</label>
+                    <div id="slider-range"></div>
+                  </div>
+                  <div class="col-md-2">
+                    <label>Min Price:</label>
+                    <%= f.text_field :price_gteq, class: "form-control" %>
+                  </div>
+                  <div class="col-md-2">
+                    <label>Max Price:</label>
+                    <%= f.text_field :price_lteq, class: "form-control" %>
+                  </div>
+                </div>
+                <hr/>
+
+                <div class="row">
+                  <div class="col-md-offset-2 col-md-4">
+                    <%= text_field_tag :start_date, params[:start_date], readonly: true, placeholder: "Start Date", class: "form-control datepicker" %>
+                  </div>
+                  &emsp;
+                  <div class="col-md-4">
+                    <%= text_field_tag :end_date, params[:end_date], readonly: true, placeholder: "End Date", class: "form-control datepicker" %>
+                  </div>
+                </div>
+                <hr/>
+
+                <div class="row">
+                  <div class="col-md-3">
+                    <%= check_box_tag "q[gym_type_eq_any][]", "Fitness Center" %> Fitness Center
+                  </div>
+                  <div class="col-md-3">
+                    <%= check_box_tag "q[gym_type_eq_any][]", "Crossfit Box" %> Crossfit Box
+                  </div>
+                  <div class="col-md-3">
+                    <%= check_box_tag "q[gym_type_eq_any][]", "Studio" %> Studio
+                  </div>
+                  <div class="col-md-3">
+                    <%= check_box_tag "q[gym_type_eq_any][]", "Sports Training" %> Sports Training
+                  </div>
+                </div>
+                <hr/>
+
+                <div class="row">
+                  <div class="col-md-4">
+                    <%= check_box_tag "q[is_weights_eq]", true %> Free Weights/Machines
+                  </div>
+                  <div class="col-md-4">
+                    <%= check_box_tag "q[is_internet_eq]", true %> Internet
+                  </div>
+                  <div class="col-md-4">
+                    <%= check_box_tag "q[is_lounge_eq]", true %> Lounge
+                  </div>
+                  <div class="col-md-4">
+                    <%= check_box_tag "q[is_shower_eq]", true %> Shower
+                  </div>
+                  <div class="col-md-4">
+                    <%= check_box_tag "q[is_towel_eq]", true %> Towel Service
+                  </div>
+                  <div class="col-md-4">
+                    <%= check_box_tag "q[is_yoga_eq]", true %> Yoga Equipment
+                  </div>
+                  <div class="col-md-4">
+                    <%= check_box_tag "q[is_cycling_eq]", true %> Cycling Bikes
+                  </div>
+                  <div class="col-md-4">
+                    <%= check_box_tag "q[is_pilates_eq]", true %> Pilates Equipment
+                  </div>
+                  <div class="col-md-4">
+                    <%= check_box_tag "q[is_boxing_eq]", true %> Boxing Equipment
+                  </div>
+                  <div class="col-md-4">
+                    <%= check_box_tag "q[is_pool_eq]", true %> Swimming Pool
+                  </div>
+                  <div class="col-md-4">
+                    <%= check_box_tag "q[is_basketball_eq]", true %> Basketball Court
+                  </div>
+                  <div class="col-md-4">
+                    <%= check_box_tag "q[is_childcare_eq]", true %> Childcare
+                  </div>
+                </div>
+                <hr/>
+
+                <div class="row text-center">
+                  <%= f.submit "Search", class: "btn btn-save" %>
+                </div>
+            <% end %>
+        </div>
+        <br/>
+
+        <div class="row" id="gym_listing">
+          <%= render partial: "gyms/gyms_list", locals: {gyms: @arrGyms} %>
+        </div>
+
+      </div>
+    </div> 
+  </div>
 </div>
 
 

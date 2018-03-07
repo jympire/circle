@@ -1,4 +1,5 @@
-<% if !@gyms.blank? %>
+<div class="container content">
+  <% if !@gyms.blank? %>
   <div class="row">
     <%= search_form_for @search, class: 'form-group', url: host_calendar_path do |f| %>
       <div class="col-md-6 select">
@@ -19,7 +20,8 @@
 
 <%= render 'form' %>
 
-<div id="calendar"></div>
+<div id="calendar"></div>  
+</div>
 
 <script>
   window.reservations = <%= raw @events.to_json %>
