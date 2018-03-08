@@ -1,8 +1,10 @@
 <div class="container content">
  
-  <div class="banner">
-    <h3 class="text-center">Bookable gyms for Personal Trainers and their Clients.</h3>  
-  </div>
+  <% if (!user_signed_in?) %>
+    <div class="banner">
+      <h3 class="text-center">Bookable gyms for Personal Trainers and their Clients.</h3>  
+    </div>
+  <% end %>
 
   <!-- Gyms -->
   <div><h4>Gyms</h4></div>
