@@ -102,8 +102,8 @@ Rails.application.configure do
     s3_host_name: 's3-us-west-1.amazonaws.com',
     s3_credentials: {
       bucket: 'circle.fit',
-      access_key_id: 'ACCESS_KEY',
-      secret_access_key: 'SECRET_ACCESS_KEY',
+      access_key_id: ENV['ACCESS_KEY'],
+      secret_access_key: ENV['SECRET_ACCESS_KEY'],
       s3_region: 'us-west-1'
     }
   }
