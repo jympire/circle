@@ -87,12 +87,24 @@ Rails.application.configure do
   config.action_mailer.default_url_options = { protocol: 'https', :host => 'https://circle.fit' }
   
   ActionMailer::Base.smtp_settings = {
-  :port           => ENV['MAILGUN_SMTP_PORT'],
-  :address        => ENV['MAILGUN_SMTP_SERVER'],
-  :user_name      => ENV['MAILGUN_SMTP_LOGIN'],
-  :password       => ENV['MAILGUN_SMTP_PASSWORD'],
-  :domain         => 'https://lit-mesa-56715.herokuapp.com',
-  :authentication => :plain,
-}
-ActionMailer::Base.delivery_method = :smtp
+    :port           => ENV['MAILGUN_SMTP_PORT'],
+    :address        => ENV['MAILGUN_SMTP_SERVER'],
+    :user_name      => ENV['MAILGUN_SMTP_LOGIN'],
+    :password       => ENV['MAILGUN_SMTP_PASSWORD'],
+    :domain         => 'https://lit-mesa-56715.herokuapp.com',
+    :authentication => :plain,
+  }
+  ActionMailer::Base.delivery_method = :smtp
+  
+  config.paperclip_defaults = {
+    storage: :s3,
+    path: ':class/:attachment/:id/:style/:filename',
+    s3_host_name: 's3-us-west-1.amazonaws.com',
+    s3_credentials: {
+      bucket: 'circle.fit',
+      access_key_id: 'ACCESS_KEY',
+      secret_access_key: 'SECRET_ACCESS_KEY',
+      s3_region: 'us-west-1'
+    }
+  }
 end
