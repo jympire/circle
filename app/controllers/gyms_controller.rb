@@ -32,6 +32,7 @@ class GymsController < ApplicationController
   end
   
   def destroy
+    Gym.find(params[:id]).destroy
   end
 
   def listing
