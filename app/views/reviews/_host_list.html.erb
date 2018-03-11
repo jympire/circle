@@ -4,26 +4,29 @@
   </div>
 <% else %>
 
+<div class="container">
   <% @host_reviews.order(id: :desc).each do |r| %>
-    <div class="row">
-      <div class="col-md-3 text-center">
-        <%= image_tag avatar_url(r.host), class: "img-circle avatar-medium" %><br/><br/>
-        <%= link_to r.host.first_name, r.host %>
-      </div>
-      <div class="col-md-9">
-        <div id="star_<%= r.id %>"></div>
-
-        <% if current_user && current_user == r.host %>
-          <span class="pull-right">
-            <%= link_to r, method: :delete, data: {confirm: "Are you sure?"} do %>
-              <i class="fa fa-trash-o fa-lg"></i>
-            <% end %>
-          </span>
-        <% end %>
-        <div><%= r.created_at.strftime("%v") %></div>
-        <div><%= r.comment %></div>
-      </div>
+  <div class="row">
+    <div class="col-md-3 text-center">
+      <%= image_tag avatar_url(r.host), class: "img-circle avatar-medium" %><br/><br/>
+      <%= link_to r.host.first_name, r.host %>
     </div>
-    <hr>  
-  <% end %>
+    <div class="col-md-9">
+      <div id="star_<%= r.id %>"></div>
+
+      <% if current_user && current_user == r.host %>
+        <span class="pull-right">
+          <%= link_to r, method: :delete, data: {confirm: "Are you sure?"} do %>
+            <i class="fa fa-trash-o fa-lg"></i>
+          <% end %>
+        </span>
+      <% end %>
+      <div><%= r.created_at.strftime("%v") %></div>
+      <div><%= r.comment %></div>
+    </div>
+  </div>
+  <hr>  
+  <% end %>  
+</div>
+   
 <% end %>
