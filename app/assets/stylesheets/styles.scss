@@ -336,6 +336,9 @@ input[type="text"], input[type="email"], input[type="password"], textarea {
   box-shadow: none;
   -webkit-box-shadow: none;
   -moz-box-shadow: none;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
   font-weight: 300;
 }
 
@@ -343,6 +346,9 @@ textarea {
   box-shadow: none !important;
   -webkit-box-shadow: none !important;
   -moz-box-shadow: none !important;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
   border: 1px solid $border !important;
 }
 
@@ -368,6 +374,9 @@ textarea:focus, input:focus, input[type]:focus, .uneditable-input:focus, select:
   box-shadow: none !important;
   -webkit-box-shadow: none !important;
   -moz-box-shadow: none !important;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
   outline: 0 none;
   background-color: $white;
 }
@@ -387,6 +396,9 @@ select {
   box-shadow: none !important;
   -webkit-box-shadow: none !important;
   -moz-box-shadow: none !important;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
   padding: 0.5em 0.5em;
   margin: .25em 0 .25em 0;
   background-color: $white;

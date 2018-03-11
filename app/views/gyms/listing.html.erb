@@ -26,6 +26,10 @@
                     <%= f.select :instant, Gym.instants.map {|key,value| [key.humanize, key]}, selected: @gym.Request? ? 'Request' : 'Instant', prompt: "Select...", class: "form-control" %>
                   </div>
                 </div>
+                
+                <div class="col-md-4">
+                  <%= f.check_box :active %> Active
+                </div>
               </div>
 
               <div><%= f.submit "Save", class: "btn btn-save" %></div>

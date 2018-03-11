@@ -1,11 +1,11 @@
 class Gym < ApplicationRecord
   enum instant: {Request: 0, Instant: 1}
   
-  belongs_to :user
-  has_many :photos
-  has_many :reservations
-  has_many :guest_reviews
-  has_many :calendars
+  belongs_to :user, dependent: :destroy
+  has_many :photos, dependent: :destroy
+  has_many :reservations, dependent: :destroy
+  has_many :guest_reviews, dependent: :destroy
+  has_many :calendars, dependent: :destroy
   
   geocoded_by :address_string
   after_validation :geocode, if: :address_string_changed?
