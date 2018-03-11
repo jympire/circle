@@ -33,7 +33,16 @@ class PagesController < ApplicationController
   def guest_waiver
   end
   
-  def howitworks
+  def how_it_works
+  end
+  
+  def for_trainers
+  end
+  
+  def for_gyms
+  end
+  
+  def for_clients_and_guests
   end
 
   def search

@@ -11,7 +11,10 @@ Rails.application.routes.draw do
   get '/terms/copyright_policy' , to: 'pages#copyright'
   get '/terms/cookie_policy' , to: 'pages#cookie'
   get '/terms/guest_waiver' , to: 'pages#guest_waiver'
-  get '/howitworks' , to: 'pages#howitworks'
+  get '/how_it_works' , to: 'pages#how_it_works'
+  get '/how_it_works/for_gyms' , to: 'pages#for_gyms'
+  get '/how_it_works/for_trainers' , to: 'pages#for_trainers'
+  get '/how_it_works/for_clients_and_guests' , to: 'pages#for_clients_and_guests'
 
   devise_for :users,
              path: '',
