@@ -375,9 +375,7 @@ textarea:focus, input:focus, input[type]:focus, .uneditable-input:focus, select:
   box-shadow: none !important;
   -webkit-box-shadow: none !important;
   -moz-box-shadow: none !important;
-  appearance: none;
-  -webkit-appearance: none;
-  -moz-appearance: none;
+  
   outline: 0 none;
   background-color: $white;
 }
@@ -542,6 +540,10 @@ input[type="checkbox"]:checked:before {
 .form-group input[type="radio"] {
   height: 15px;
   margin-right: 10px;
+}
+
+.btn-group label {
+  margin-right: 15px;
 }
 
 
