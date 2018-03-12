@@ -188,7 +188,7 @@ hr {
 
 .navbar-default .navbar-brand {
   color: $primary;
-  font-weight: 600;
+  font-weight: bold;
   letter-spacing: 1px;
   margin-top: 8px;
   
@@ -199,7 +199,8 @@ hr {
 
 .navbar-default .navbar-brand.user {
   color: $primary;
-  font-weight: 700;
+  font-weight: bold;
+  letter-spacing: 1px;
   margin-top: 8px !important;
   
   &:hover {
@@ -759,5 +760,17 @@ input[type="checkbox"]:checked:before {
   h3 {
     font-weight: bold;
   }
+}
+
+
+/* Misc */
+.numberCircle {
+  width: 38px;
+  line-height: 30px;
+  border-radius: 50%;
+  text-align: center;
+  font-size: 18px;
+  border: 2px solid $primary;
+  color: $primary;
 }
 
