@@ -53,7 +53,7 @@ class PagesController < ApplicationController
 
     # STEP 2
     if session[:loc_search] && session[:loc_search] != ""
-      @gyms_address = Gym.where(active: true).near(session[:loc_search], 5, order: 'distance')
+      @gyms_address = Gym.where(active: true).near(session[:loc_search], 10, order: 'distance')
     else
       @gyms_address = Gym.where(active: true).all
     end
