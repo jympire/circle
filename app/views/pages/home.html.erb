@@ -2,8 +2,13 @@
  
   <% if (!user_signed_in?) %>
     <div class="banner">
-      <h3 class="text-center">Bookable gyms for Personal Trainers.</h3>  
+      <h3 class="text-center">Bookable gyms for Personal Trainers.</h3> 
     </div>
+    <% if @gyms.count < 0 %>
+      <div>
+        <h4>Launching Soon!</h4>
+      </div>
+    <% end %>
   <% end %>
 
   <!-- Gyms -->
