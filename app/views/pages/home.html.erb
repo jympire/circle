@@ -10,9 +10,15 @@
   <div><h4 class="text-babu"><strong>Gyms</strong></h4></div>
   <br>
 
-  <div class="row" id="gym_listing">
-    <%= render partial: "gyms/gyms_list", locals: {gyms: @gyms} %>
-  </div>
+  <% if @gyms.count < 0 %>
+    <div>
+      <h4>Launching Soon!</h4>
+    </div>
+  <% else %>
+    <div class="row" id="gym_listing">
+      <%= render partial: "gyms/gyms_list", locals: {gyms: @gyms} %>
+    </div>
+  <% end %>
 </div>
 
 
