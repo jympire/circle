@@ -4,25 +4,34 @@
     <div class="banner">
       <h3 class="text-center">Bookable gyms for Personal Trainers.</h3> 
     </div>
-    <% if @gyms.count < 0 %>
+    
+    <div><h4 class="text-babu"><strong>Gyms</strong></h4></div>
+    <br>
+    
+    <% if !@gyms.blank? %>
+      <div class="row" id="gym_listing">
+        <%= render partial: "gyms/gyms_list", locals: {gyms: @gyms} %>
+      </div> 
+    <% else %>
       <div>
         <h4>Launching Soon!</h4>
       </div>
     <% end %>
-  <% end %>
+  <% else %>
 
   <!-- Gyms -->
   <div><h4 class="text-babu"><strong>Gyms</strong></h4></div>
   <br>
 
-  <% if @gyms.count < 0 %>
-    <div>
-      <h4>Launching Soon!</h4>
-    </div>
-  <% else %>
-    <div class="row" id="gym_listing">
-      <%= render partial: "gyms/gyms_list", locals: {gyms: @gyms} %>
-    </div>
+    <% if !@gyms.blank? %>
+      <div class="row" id="gym_listing">
+        <%= render partial: "gyms/gyms_list", locals: {gyms: @gyms} %>
+      </div> 
+    <% else %>
+      <div>
+        <h4>Launching Soon!</h4>
+      </div>
+    <% end %>
   <% end %>
 </div>
 
